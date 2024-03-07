@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administrar Películas</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://www.gstatic.com/firebasejs/9.8.4/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.8.4/firebase-firestore-compat.js"></script>
+    <script src="script.js"></script>
+    <script src="peliculas.js"></script>
+</head>
+<body>
+    <div class="form">
+        <h2>Administrar Películas</h2>
+        <div class="movie-form">
+            <label for="movieName">Nombre de la Película</label>
+            <input type="text" id="movieName">
+            <label for="movieDescription">Descripción</label>
+            <input type="text" id="movieDescription">
+            <label for="movieLink">Enlace</label>
+            <input type="text" id="movieLink">
+            <button onclick="saveMovie()">Guardar Película</button>
+        </div>
+        <div class="movie-list">
+          <br>
+            <h3>Películas Guardadas</h3>
+           <br>
+            <table id="movieTable">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Descripción</th>
+                        <th>Enlace</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+            <button onclick="refreshMovieTable()">Actualizar Tabla</button>
+        </div>
+    </div>
+
+    <div id="editForm" class="edit-form" style="display: none;">
+        <h3>Editar Película</h3>
+        <form id="editMovieForm">
+            <label for="editMovieName">Nombre de la Película</label>
+            <input type="text" id="editMovieName">
+            <label for="editMovieDescription">Descripción</label>
+            <input type="text" id="editMovieDescription">
+            <label for="editMovieLink">Enlace</label>
+            <input type="text" id="editMovieLink">
+            <button type="submit">Guardar Cambios</button>
+        </form>
+    </div>
+</body>
+</html>
